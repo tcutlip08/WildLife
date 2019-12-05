@@ -13,8 +13,8 @@ function App() {
   const [isAuthed, setIsAuthed] = useState(false);
 
   useEffect(() => {
-    const localStorageIsAuthed = localStorage.getItem('isAuthed');
-    if(localStorageIsAuthed){
+    const localStorageIsAuthed = localStorage.getItem("isAuthed");
+    if (localStorageIsAuthed) {
       storeIsAuthed(localStorageIsAuthed);
     }
   }, []);
@@ -24,7 +24,7 @@ function App() {
   };
 
   const storeIsAuthed = incomingValue => {
-    localStorage.setItem('isAuthed', incomingValue);
+    localStorage.setItem("isAuthed", incomingValue);
     setIsAuthed(incomingValue);
   };
 
@@ -36,7 +36,11 @@ function App() {
         <Route
           path="/new-car"
           component={props => (
-            <NewCar {...props} isAuthed={isAuthed} setIsAuthed={storeIsAuthed} />
+            <NewCar
+              {...props}
+              isAuthed={isAuthed}
+              setIsAuthed={storeIsAuthed}
+            />
           )}
         />
         <Route path="/edit/:id" component={EditCar} />
